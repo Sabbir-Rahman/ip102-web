@@ -1,0 +1,3 @@
+/venv
+/app/resnet152.pt
+/app/__pycache__
