@@ -24,6 +24,8 @@ def predict():
             tensor = transform_image(img_bytes)
             prediction = get_prediction(tensor)
             data = {'prediction': prediction.item() + 1, 'class_name': str(prediction.item()+1)}
-            return jsonify(data)
+            response = jsonify(data)
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
         except:
             return jsonify({'error': 'error during prediction'})
