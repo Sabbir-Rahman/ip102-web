@@ -1,8 +1,10 @@
 from crypt import methods
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from torch_utils import transform_image, get_prediction
 
 app = Flask(__name__)
+CORS(app)
 # export FLASK_APP=main.py  export FLASK_ENV=development
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
