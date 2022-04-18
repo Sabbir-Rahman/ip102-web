@@ -37,14 +37,15 @@ function App() {
   const SubmitFileData = () => {
     let formData = new FormData()
     formData.append('file', imgFile)
-    axios.post('http://127.0.0.1:5000/predict', formData)
-    .then(res => {
-      console.log(res.data)
-      setClassName(res.data.class_name)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    axios
+      .post('http://157.245.101.181:5000/predict', formData)
+      .then(res => {
+        console.log(res.data)
+        setClassName(res.data.class_name)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   return (
