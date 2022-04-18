@@ -3,7 +3,8 @@ from flask_cors import CORS
 from torch_utils import transform_image, get_prediction
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, allow_headers=['Content-Type', 'Access-Control-Allow-Origin',
+                         'Access-Control-Allow-Headers', 'Access-Control-Allow-Methods'])
 # export FLASK_APP=main.py  export FLASK_ENV=development
 
 CLASS_NAME = [
