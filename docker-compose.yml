@@ -1,0 +1,28 @@
+version: "3"
+services:
+  frontend:
+    container_name: frontend
+    depends_on:
+      - backend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/frontend
+
+  backend:
+    restart: always
+    container_name: backend
+    build: ./app
+    ports:
+      - 5000:5000
+    expose:
+      - 5000
+    volumes:
+      - ./app:/usr/src/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=main.py
+      - FLASK_DEBUG=1
